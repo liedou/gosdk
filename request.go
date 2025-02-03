@@ -47,13 +47,11 @@ func (b *Bot) Run() {
 		}
 		msg, err := b.parseMsg(msgByte)
 		if err != nil {
-			color.Red("解析消息失败: ", err.Error())
+			color.Red("解析消息失败: %v", err.Error())
 		}
 		switch v := msg.(type) {
 		case *GroupMessage:
 			b.HandleGroupMessage(v)
-		default:
-			fmt.Println(v)
 		}
 	})
 	log.Fatal(http.ListenAndServe(b.postURL, nil))
