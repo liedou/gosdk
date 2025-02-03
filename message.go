@@ -253,7 +253,7 @@ type Poke struct {
 
 func (p Poke) String() string {
 	return fmt.Sprintf(
-		`[戳:%s]`,
+		`[戳:%d]`,
 		p.QQ)
 }
 
@@ -261,7 +261,7 @@ func (p Poke) toJson() string {
 	return fmt.Sprintf(
 		`{"type": "poke",
 			 "data": {
-				 "qq": "%s"
+				 "qq": "%d"
 			 }
 			}`, p.QQ)
 }
